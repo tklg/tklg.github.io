@@ -1,0 +1,7 @@
+ErrorDocument 404 /errorpages/404.html
+ErrorDocument 500 /errorpages/500.html
+
+AddType font/ttf .ttf
+AddType font/eot .eot
+AddType font/otf .otf
+AddType font/woff .woff
