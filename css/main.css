@@ -35,7 +35,7 @@ a {
 
 #header-title-container {
 	top: 20px;
-	width: 45%;
+	/*width: 45%;*/
 	margin-left: 15%;
 	height: 400px;
 	z-index: 3;
