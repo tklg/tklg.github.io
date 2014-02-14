@@ -1,53 +1,68 @@
-<html>
-<head>
-	<title>Test Site</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<script type="text/javascript" src="js/main.js"></script>
-</head>
-<body onload="initialize()">
-<!--
-	<div class="element-box" id="boxHeader">
-		<div class="soemthing" id="something">
-		</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Site</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/main.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-color:#E0E0E0">
+ 
+	<div class="header" id="header-main">
+
+	  	<div class="header" id="header-menu">
+	  		<div class="menu" id="header-menu-choice-blank">
+	  		</div>
+	  		<a href="/index.html">
+	  		<div class="menu menu-main" id="header-menu-choice">
+	  			Home
+	  		</div>
+	  		</a>
+	  		<a href="#">
+	  		<div class="menu menu-main" id="header-menu-choice">
+	  			????
+	  		</div>
+	  		</a>
+	  		<a href="#">
+	  		<div class="menu menu-main" id="header-menu-choice">
+	  			Thing 2
+	  		</div>
+	  		</a>
+	  		<a href="#">
+	  		<div class="menu menu-main" id="header-menu-choice">
+	  			Thing 1
+	  		</div>
+	  		</a>
+	  	</div>
+
+	  	<div class"header" id="header-title-container">
+	  		<div class="header" id="header-title-main">
+	  			This is a test
+	  		</div>
+
+	  		<div class="header" id="header-title-sub">
+	  			This is a subtitle
+	  		</div>
+	  	</div>
 	</div>
--->
-	<div class="element-box" id="boxSidebar">
-		<a href="javascript:onClickHome()">
-		<div class="vertical-menu-element" id="sidebar-element-home">
-			Home
-		</div>
-		</a>
-		<a href="javascript:onClickAbout()">
-		<div class="vertical-menu-element" id="sidebar-element-about">
-			About
-		</div>
-		</a>
-		<a href="javascript:onClickProjects()">
-		<div class="vertical-menu-element" id="sidebar-element-projects">
-			Projects
-		</div>
-		</a>
-	</div>
 
-<!-- Main Page Section -->
-
-	<div class="element-box" id="boxMain">
-		<div class="display-window" id="dwMain">
-			<iframe id="iFrameMain" src="iFramePageHome.html" width="100%" height="100%" frameborder="0" />
-		</div> 
-	</div>
-
-<!--[if !(lte IE 8)]><!-->
-<script type="text/javascript"> 
-  // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt GPL-v3-or-Later
-  (function(){
-    var e = document.createElement('script'); e.type='text/javascript'; e.async = true;
-    e.src = document.location.protocol + '//d1agz031tafz8n.cloudfront.net/thedaywefightback.js/widget.min.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
-  })();
-  // @license-end
-</script>
-<!--<![endif]-->
-
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
