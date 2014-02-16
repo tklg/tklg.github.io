@@ -1,0 +1,89 @@
+@import "fonts.css";
+
+* {
+	text-decoration: none !important;
+}
+
+.fontcolor-blue {
+	color: #075ee7;
+}
+.fontcolor-black {
+	color: #000;
+}
+
+.projectpages-title {
+	margin-top: 20px;
+	margin-left: 2%;
+	height: 100%;
+	width: 25%;
+	float: left;
+	z-index: 0;
+}
+
+.projectpages-body {
+	float: right;
+	z-index: 0;
+	color: #000;
+}
+
+.projectpages-header {
+	font-family: 'FF-shadow';
+	font-size: 40px;
+	color: #000;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.projectpages-menu {
+	width: 50%;
+	height: 100%;
+	z-index: 1;
+	position: relative;
+	list-style-type: none;
+}
+
+.lightmenu-vertical {
+	height: auto;
+	width: auto;
+	font-size: 15px;
+	line-height: 25px;
+	text-align: left;
+	vertical-align: center;
+	z-index: 2;
+	color: #8A8A8A;
+	position: relative;
+	border-left-width: 3px;
+	border-left-style: solid;
+	border-color: #e0e0e0;
+}
+
+.lightmenu-vertical-active {
+	color: #000;
+	border-color: #004BCF;
+}
+
+.lightmenu-vertical:hover {
+	border-color: #004BCF;
+	border-left-width: 1px;
+	margin-left: 2px;
+	cursor: pointer;
+	color: #404040;
+}
+.lightmenu-vertical:active {
+	border-color: #99992f;
+}
+
+.lightmenu-vertical-submenu {
+	margin-left: 10px;
+}
+
+.lightmenu-vertical-submenu-container {
+	margin-left: 30px;
+}
+
+.lightmenu-text {
+	color: #8A8A8A;
+}
+.lightmenu-text:hover {
+	color: #404040;
+}

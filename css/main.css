@@ -111,6 +111,13 @@ a {
 	left: 42%;
 }
 
+.body {
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 20px;
+	color: #000000;
+}
 .link {
 	float: left;
 	position: relative;
