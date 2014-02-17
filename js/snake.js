@@ -230,5 +230,5 @@ snake.keypress = function(e) {
 snake.updateNumberOfFoodsEaten = function() {
 	//Update scoreboard here
 	snake.settings.foodsEaten++;
-	document.getElementById("snake-scoreboard").innerHTML=("Foods: " + snake.settings.foodsEaten.toString());
+	document.getElementById("snake-scoreboard").innerHTML=("Score: " + snake.settings.foodsEaten.toString());
 }
