@@ -32,6 +32,14 @@ snake.init = function() {
 		direction:2,
 		directionQueue: []
 	}
+	snake.settings = {
+		speed: 100,
+		pixWidth: 20,
+		pixHeight: 20,
+		boxWidth: 18,
+		boxHeight: 18,
+		ai: true
+	}
 	
 	/* Create containers */
 	$('body').append('<div id="snake_snake"></div><div id="snake_food"></div>');

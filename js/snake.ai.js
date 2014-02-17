@@ -12,25 +12,25 @@ snake.ai.decide = function() {
 	h.y = eval(head.attr('data-y'));
 	f.x = eval(food.attr('data-x'));
 	f.y = eval(food.attr('data-y'));
-	
-	if (Math.abs(h.x-f.x) > Math.abs(h.y-f.y)) {
+
+//Test AI
+
+	if (Math.abs(h.x-f.x) > 0) {
 		if (h.x > f.x) {
-			// Go left
 			d = 3;
 		} else {
-			// Go right
 			d = 1;
 		}
-	} else {
-		if (h.y < f.y) {
-			// Go down
-			d = 2;
-		} else {
-			// Go up
+	}
+
+	if (Math.abs(h.y-f.y) > 0) {
+		if (h.y > f.y) {
 			d = 0;
+		} else {
+			d = 2;
 		}
 	}
-	
+
 	var r = 1;
 	while (!snake.ai.isPossible(h, d) && r++ < 4) {
 		d = (d+1)%4;
