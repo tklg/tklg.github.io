@@ -11,6 +11,29 @@
 	color: #000;
 }
 
+.projectpages-fixedpos {
+	position: fixed;
+}
+
+.btn-backtotop {
+	position: fixed;
+	bottom: 15px;
+	left: 15px;
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	border-radius: 4px;
+	text-align: center;
+	font-style: bold;
+	font-size: 20px;
+	background-color: #075ee7;
+	z-index: 100;
+}
+.btn-backtotop:hover {
+	background-color: #004FD9;
+	cursor: pointer;
+}
+
 .projectpages-title {
 	margin-top: 20px;
 	margin-left: 2%;
@@ -18,10 +41,16 @@
 	width: 25%;
 	float: left;
 	z-index: 0;
+	position: relative;
 }
 
 .projectpages-body {
+	margin-top: 100px;
+	margin-right: 200px;
 	float: right;
+	position: relative;
+	width: 55%;
+	height: 100%;
 	z-index: 0;
 	color: #000;
 }

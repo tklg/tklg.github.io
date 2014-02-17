@@ -1,7 +1,7 @@
 @import "fonts.css";
 
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 * {
 	 color: #e0e0e0; font-family: 'FF-regular';
@@ -11,6 +11,9 @@ a {
 }
 .fontcolor-black {
 	color: #000;
+}
+p {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
 #header-main {
@@ -108,7 +111,7 @@ a {
 	line-height: 20px;
 	font-size: 15px;
 	position: relative;
-	left: 40%;
+	left: 33%;
 }
 
 .body {
