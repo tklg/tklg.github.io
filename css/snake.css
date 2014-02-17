@@ -1,0 +1,30 @@
+#snake_snake, #snake_food {
+
+}
+
+#snake_snake  {
+
+}
+
+#snake_food {
+
+}
+
+.snake_piece {
+	position:fixed;
+	left:50%;
+	
+	box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#snake_snake .snake_piece {
+	background:#3253E6;
+	box-shadow:inset 1px 1px 3px #0F2CAB;
+}
+
+#snake_food .snake_piece {
+	background: #EBD128;
+	box-shadow:inset 1px 1px 3px #E6A432;
+}
