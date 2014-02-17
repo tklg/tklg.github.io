@@ -141,3 +141,26 @@ p, li {
 	width: 50px;
 	top: 30px;
 }
+
+.body-halfpage {
+	width: 50%;
+	float: left;
+	position: relative;
+}
+
+.body-halfpage-content {
+	color: #000;
+	position: relative;
+	margin-top: 20px;
+}
+
+.body-title {
+	font-size: 30px;
+	color: #000;
+	line-height: 30px;
+	height: 30px;
+	width: 100%;
+	vertical-align: center;
+	position: relative;
+
+}
