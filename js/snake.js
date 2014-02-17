@@ -12,6 +12,7 @@ snake.settings = {
 	pixHeight: 20,
 	boxWidth: 18,
 	boxHeight: 18,
+	foodsEaten: -1,
 	ai: false
 }
 
@@ -38,6 +39,7 @@ snake.init = function() {
 		pixHeight: 20,
 		boxWidth: 18,
 		boxHeight: 18,
+		foodsEaten: -1,
 		ai: true
 	}
 	
@@ -98,6 +100,7 @@ snake.makePiece = function(x, y) {
 	var elm = food ? $('#snake_food') : $('#snake_snake');
 	
 	return $(document.createElement('div')).addClass('snake_piece').css({'top':top, 'margin-left':marginLeft}).attr('data-x', x).attr('data-y', y).appendTo(elm);
+
 }
 
 /* Update the snake's position */
@@ -167,6 +170,7 @@ snake.update = function() {
 	
 	snake.variables.direction = d;
 	snake.makePiece(x, y);
+
 }
 
 /* Create a piece of food */
@@ -191,6 +195,8 @@ snake.placeFood = function() {
 		snake.pause();
 		snake.play();
 	}
+
+	snake.updateNumberOfFoodsEaten();
 }
 
 /* Return the piece at specific co-ordinates, or false if no piece exists */
@@ -219,4 +225,10 @@ snake.keypress = function(e) {
 	// Do not allow the same direction to be repeated
 	if (snake.variables.directionQueue[snake.variables.directionQueue.length-1] != d)
 		snake.variables.directionQueue.push(d);
+}
+
+snake.updateNumberOfFoodsEaten = function() {
+	//Update scoreboard here
+	snake.settings.foodsEaten++;
+	document.getElementById("snake-scoreboard").innerHTML=("Foods: " + snake.settings.foodsEaten.toString());
 }
