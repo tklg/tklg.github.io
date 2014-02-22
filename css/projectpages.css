@@ -116,3 +116,8 @@
 .lightmenu-text:hover {
 	color: #404040;
 }
+
+.showcase-image {
+	margin: 10px;
+	text-align: center;
+}

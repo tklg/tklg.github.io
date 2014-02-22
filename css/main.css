@@ -164,3 +164,24 @@ p, li {
 	position: relative;
 
 }
+
+.modal-left-align {
+	float: left;
+	height: auto;
+	width: 45%;
+	margin-bottom: 10px;
+}
+
+.modal-right-align {
+	float: left;
+	height: auto;
+	width: 45%;
+	margin-bottom: 10px;
+}
+
+.listitem-tinted {
+	background-color: #ACD7F2;
+}
+.listitem-tinted-dark {
+	background-color: #5AB8F2;
+}
