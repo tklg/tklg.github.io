@@ -290,14 +290,16 @@ html {
 
     @keyframes fade {
 	    0%   { background: #1F45FC; }
-	    33%  { background: #4AA02C; }
-	    66%  { background: #E56717; }
-	    100% { background: #842DCE; }
+	    25%  { background: #4AA02C; }
+	    50%  { background: #E56717; }
+	    75% { background: #842DCE; }
+	    100% { background: #1F45FC; }
 	}
 
 	@-webkit-keyframes fade {
 	    0%   { background: #1F45FC; }
-	    33%  { background: #4AA02C; }
-	    66%  { background: #E56717; }
-	    100% { background: #842DCE; }
+	    25%  { background: #4AA02C; }
+	    50%  { background: #E56717; }
+	    75% { background: #842DCE; }
+	    100% { background: #1F45FC; }
 	}
