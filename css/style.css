@@ -41,22 +41,9 @@ html {
       color: #000;
       margin-bottom: 5px;
       font-size: 70px;
-      letter-spacing: -4px;
       font-weight: 100;
     }
-    h1 span {
-      font-size: 26px;
-      margin: 0 5px;
-      text-transform: capitalize;
-      background: rgba(0,0,0,0.85);
-      display: inline-block;
-      color: #6D461D;
-      border-radius: 5px 5px;
-      -webkit-border-radius: 5px 5px;
-      -moz-border-radius: 5px 5px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
-      padding: 3px 10px;
-    }
+
     h2 {
       color: #6D461D;
       font-weight: 100;
@@ -228,7 +215,7 @@ html {
       font-size: 21px;
     }
     .menu-buttons {
-    	margin-top: 15%;
+    	margin-top: 8%;
     	text-align: center;
     }
 /*===============================================================================================================================================================*/

@@ -14,5 +14,9 @@ $(document).ready(function () {
 });
 
 scrollTo = function(section) {
-        $(".main").moveTo(section)    
+    if (section === 2) {
+        $(".main").moveTo(2)
+    } else {
+        $(".main").moveTo(3)
+    }
 }

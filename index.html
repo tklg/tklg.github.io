@@ -11,12 +11,11 @@
 <!-- jQuery v1 -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
+  <script type="text/javascript" src="js/jquery.flipping-text.js"></script>
   <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="/js/jquery.onepage-scroll.js"></script> -->
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+
     <!-- Font Awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<!-- <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'> -->
@@ -36,7 +35,22 @@
         responsiveFallback: 600,
         loop: true
       });
-		});
+      $(".flipping-text").flipping_text({
+	    tickerTime: 10,
+	    customRandomChar: false,
+	    tickerCount: 10,
+	    opacityEffect: true,
+	    resetOnChange: false
+  	  });
+  	  $(".flipping-text-slow").flipping_text({
+	    tickerTime: 15,
+	    customRandomChar: false,
+	    tickerCount: 15,
+	    opacityEffect: true,
+	    resetOnChange: false
+  	  });
+	});
+
 	</script>
   </head>
 <body>
@@ -45,8 +59,8 @@
 	    
 	      <section class="page1">
 	        <div class="page_container">
-	          <h1>Theodore Kluge</h1>
-	          <h2>Website design and programming noob <i class="fa fa-smile-o"></i></h2>
+	          <h1 class="flipping-text-slow">Theodore Kluge</h1>
+	          <h2 class="flipping-text" data-delay="1000">Website design and programming noob</h2>
 	          <div class="menu-buttons">
 	          	<span onClick="scrollTo(2)">About Meh</span>
 	          	<span onCLick="scrollTo(3)">Projects</span>
@@ -104,7 +118,7 @@
   </div>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
     <!-- Init the instantclick -->
 <!--     <script src="js/instantclick.min.js" data-no-instant></script>
 	<script data-no-instant>InstantClick.init();</script> -->
