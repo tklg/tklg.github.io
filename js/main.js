@@ -1,3 +1,10 @@
+showBtns = function() {
+    setTimeout(function(){
+        $('.btn').removeClass('hidden');
+        $('.btn').addClass('btn-visible')
+}, 3600);
+}
+
 scrollTo = function(section) {
     colorIncBlankUpdate(section);
     $(".main").moveTo(section);
