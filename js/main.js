@@ -1,5 +1,6 @@
 scrollTo = function(section) {
-        $(".main").moveTo(section)    
+    colorIncBlankUpdate(section);
+    $(".main").moveTo(section);
 }
 
 var colorNumber = 1;
@@ -48,7 +49,7 @@ colorIncUp = function() {
 colorIncBlankUpdate = function(newNumber) {
     colorNumber = newNumber;
     $('.wrapper').removeClass('wrapper-color-1 wrapper-color-2 wrapper-color-3 wrapper-color-4 wrapper-color-5');
-    
+
     if (colorNumber === 1) {
         $('.wrapper').addClass('wrapper-color-1');
     } else if (colorNumber === 2) {
