@@ -23,11 +23,27 @@ html {
     	margin: 0 auto; 
     	overflow: hidden;
     	background-color: #1F45FC;
-    	/*background: #37A348;*/
-	    animation: fade 100s infinite;
-	   -webkit-animation: fade 100s infinite;
+	    /*animation: fade 100s infinite;
+	   -webkit-animation: fade 100s infinite;*/
+	   -webkit-transition: background-color 1s ease-in-out;
+          transition: background-color 1s ease-in-out;
     }
-    
+    .wrapper-color-1 {
+    	background-color: #1F45FC;
+    }
+    .wrapper-color-2 {
+    	background-color: #437C17;
+    }
+    .wrapper-color-3 {
+    	background-color: #F87217;
+    }
+    .wrapper-color-4 {
+    	background-color: #F62217;
+    }
+    .wrapper-color-5 {
+    	background-color: #6C2DC7;
+    }
+
     a {
       text-decoration: none;
     }
@@ -110,6 +126,8 @@ html {
       position: absolute;
       max-width: 100%;
       z-index: 1;
+      left: 10%;
+      border-radius: 7px;
     }
 /*===============================================================================================================================================================*/    
     .main section.page1 {
@@ -127,6 +145,11 @@ html {
       text-align: center;
       width: auto;
       line-height: 160%;
+    }
+    img.showcase-img {
+    	top: 20%;
+    	height: auto;
+    	width: 40%;
     }
 /*===============================================================================================================================================================*/
     .main section .page_container .btns {
@@ -267,12 +290,6 @@ html {
     	border-color: #999;
     	color: #999;
     	cursor: pointer;
-    }
-
-    .showcase-img {
-    	float: left;
-    	position: relative;
-    	border-radius: 5px;
     }
 
     @keyframes fade {

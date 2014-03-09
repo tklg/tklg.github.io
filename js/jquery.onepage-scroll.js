@@ -236,9 +236,11 @@
         }
 
         if (deltaOfInterest < 0) {
-          el.moveDown()
+          el.moveDown();
+          colorIncDown();//added by me
         } else {
-          el.moveUp()
+          el.moveUp();
+          colorIncUp();//also this
         }
         lastAnimation = timeNow;
     }
@@ -298,6 +300,7 @@
       $(".onepage-pagination li a").click(function (){
         var page_index = $(this).data("index");
         el.moveTo(page_index);
+        colorIncBlankUpdate(page_index);//added this too
       });
     }
     
@@ -324,10 +327,12 @@
         if (!$("body").hasClass("disabled-onepage-scroll")) {
           switch(e.which) {
             case 38:
-              if (tag != 'input' && tag != 'textarea') el.moveUp()
+              if (tag != 'input' && tag != 'textarea') el.moveUp();
+              colorIncUp();//added this
             break;
             case 40:
-              if (tag != 'input' && tag != 'textarea') el.moveDown()
+              if (tag != 'input' && tag != 'textarea') el.moveDown();
+              colorIncDown();//added this too
             break;
             default: return;
           }

@@ -47,7 +47,6 @@ body, .onepage-wrapper, html {
   width: 4px;
   height: 4px;
   display: block;
-  
 }
 .onepage-pagination li a:before{
   content: '';
@@ -66,7 +65,9 @@ body, .onepage-wrapper, html {
   background: none;
   border: 1px solid white;
   margin-top: -4px;
-  left: 8px;
+  left: 7.5px;/*because half-pixels make sense*/
+  -webkit-transition: background 1s ease-in;
+          transition: background 1s ease-in;
 }
 
 .disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
