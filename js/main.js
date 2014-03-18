@@ -52,7 +52,7 @@ colorIncUp = function() {
         $('.wrapper').addClass('wrapper-color-6');
     } else if (colorNumber === 0) {
         colorNumber = 6;
-        $('.wrapper').addClass('wrapper-color-5');
+        $('.wrapper').addClass('wrapper-color-6');
     }
 }
 
