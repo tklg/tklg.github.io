@@ -6,6 +6,7 @@ body {
     background: #E2E4E7;
     padding: 0;
     text-align: center;
+    /*font-family: 'FF-regular';*/
     font-family: 'ISOCPUR';
     position: relative;
     margin: 0;
@@ -43,11 +44,13 @@ html {
     .wrapper-color-5 {
     	background-color: #6C2DC7;
     }
+    .wrapper-color-6 {
+      background-color: #25383C;
+    }
 
     a {
       text-decoration: none;
     }
-    
     
     h1, h2 {
       width: 100%;
@@ -263,7 +266,7 @@ html {
       font-size: 21px;
     }
  /*===============================================================================================================================================================*/ 
- 	.menu-buttons span.btn {
+ 	.menu-buttons span.btn, .menu-buttons a.btn {
  		-webkit-transition: all .5s ease;
         -moz-transition: all .5s ease;
         -ms-transition: all .5s ease;
@@ -271,7 +274,7 @@ html {
             transition: all .5s ease;
  	}
 
-    .menu-buttons span.btn-visible {
+    .menu-buttons span.btn-visible,.menu-buttons a.btn-visible {
     	text-decoration: none;
     	height: 50px;
     	width: 150px;
@@ -294,13 +297,13 @@ html {
           transition: all .2s ease-in-out;*/
     }
 
-    .menu-buttons span.btn-visible:hover {
+    .menu-buttons span.btn-visible:hover, .menu-buttons a.btn-visible:hover {
     	border-color: #888;
     	color: #888;
     	cursor: pointer;
     }
 
-    .menu-buttons span.hidden {
+    .menu-buttons span.hidden, .menu-buttons a.hidden {
     	visibility: hidden;
     }
 
