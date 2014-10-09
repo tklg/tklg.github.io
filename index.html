@@ -4,23 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>Test Site</title>
+    <title>Theodore Kluge</title>
 
-<!-- jQuery v2 -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-<!-- jQuery v1 -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
-  <script type="text/javascript" src="js/jquery.flipping-text.js"></script>
-  <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
-	<script src="js/main.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/lettering.min.js"></script>
+	<script src="js/jquery.textillate.js"></script>
+	<script src="js/underscore.min.js"></script>
+	<script src="js/backbone.min.js"></script>
 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-
-    <!-- Font Awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<!-- <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'> -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/villa7.css">
 		
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,119 +27,207 @@
     <![endif]-->
 
     <script>
+    $("html").niceScroll({ 
+    	scrollspeed: 80,
+    	mousescrollstep: 60,
+    	cursorborder: '0px',
+    	cursorcolor: "#444"
+    });
   	$(document).ready(function(){
-      $(".main").onepage_scroll({
-        sectionContainer: "section",
-        responsiveFallback: 600,
-        // beforeMove: function(index) {
-        // 	incrementColor();
-        // },
-        loop: true
-      });
-      $(".flipping-text").flipping_text({
-	    tickerTime: 10,
-	    customRandomChar: false,
-	    tickerCount: 10,
-	    opacityEffect: true,
-	    resetOnChange: false
-  	  });
-  	  $(".flipping-text-slow").flipping_text({
-	    tickerTime: 15,
-	    customRandomChar: false,
-	    tickerCount: 15,
-	    opacityEffect: true,
-	    resetOnChange: false
-  	  });
+    	$('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
 
-  	  showBtns();
+    	$("h1.title").textillate({
+    		in: {
+                    effect: 'bounceInDown', //fadeinDownBig
+                    delay: 50,
+                    shuffle: true
+                }
+    	});
+    	$("h3.subtitle").textillate({
+    		in: {
+                    effect: 'bounceInUp', //fadeInUpBig
+                    delay: 50,
+                    shuffle: true
+                }
+    	});
+
+    	$(window).scroll(function() {
+    		var viewableOffset = $("#page-1").offset().top - $(window).scrollTop();
+    		if (viewableOffset < -300) {
+    			//show returnToTop
+    			$('#btn-backtotop').css('visibility', 'visible')
+    							   .addClass('fadeInUp')
+    							   .removeClass('fadeOutDown');
+    			$('#btn-page-2').addClass('fadeOutDown')
+    							.removeClass('fadeInUp');
+    		} else {
+    			//hide returnToTop
+    			$('#btn-backtotop').addClass('fadeOutDown')
+    							   .removeClass('fadeInUp');
+    							   // .css('visibility', 'hidden');
+    			$('#btn-page-2').addClass('fadeInUp')
+    							.removeClass('fadeOutDown');
+    		}
+    	});
+
+    	$('#btn-page-2').mouseover(function() {
+			$('#msg-page-2').css('visibility', 'visible')
+    							   .addClass('fadeInUp')
+    							   .removeClass('fadeOutDown');
+		}).mouseout(function() {
+			$('#msg-page-2').addClass('fadeOutDown')
+    							   .removeClass('fadeInUp')
+    							   
+		});
 	});
 
 	</script>
   </head>
 <body>
-  <div class="wrapper" id="wrapper">
-	  <div class="main">
-	    
-	      <section class="page1">
-	        <div class="page_container">
-	          <h1 class="flipping-text-slow">Theodore Kluge</h1>
-	          <h2 class="flipping-text" data-delay="1000">Website design and programming noob</h2>
-	          <div class="menu-buttons">
-	          	<span class="btn hidden" onClick="scrollTo(2)">About Meh</span>
-	          	<span class="btn hidden" onClick="javascript:window.location.href='https://www.github.com/villa7'"><i class="fa fa-github-alt"></i></span>
-	          	<span class="btn hidden" onClick="scrollTo(3)">Projects</span>
-	          </div>
-	  	    </div>
-	      </section>
-	    
-	    <section class="page2">
-	      <div class="page_container">
-          <h1>About Me</h1>
-          <h2>
-	          Age = 17.
-	          Reason = fun.
-	          Descriptive skills = null;
-		</h2>
-	      </div>
-      </section>
-	    
-	    <section class="page3">
-	      <div class="page_container">
-          <h1>Color Helper</h1>
-          <h2>Webcolors on the web</h2>
-          	<div class="menu-buttons" style="float:left;">
-	          	<a class="btn btn-visible" style="margin-left:0px" href='/color-helper'>Visit project</a>
-	          	<a class="btn btn-visible" href='https://github.com/villa7/color-helper'>Visit Github</a>
-	        </div>
-  	      </div>
-  	      <img class="showcase-img" src="https://raw2.github.com/villa7/villa7.github.io/master/img/colorhelperpreview.JPG">
-      </section>
+  
+<section class="main-body fullscreen-body">
+	<section class="page fullscreen" id="page-1">
+		<div class="titlebox absolute-center">
+			<h1 class="title" style="visibility:hidden">Theodore Kluge</h1>
+			<h3 class="subtitle" style="visibility:hidden">Villa7_</h3>
+		</div>
+		<span class="btn-mouseover-message animated" id="msg-page-2">My Projects</span>
+		<a href="#page-2" class="pagn downarrow button button-transparent animated fadeInUp" id="btn-page-2">
+			<i class="fa fa-chevron-circle-down"></i>
+		</a>
+	</section>
 
-      <section class="page3">
-	      <div class="page_container">
-          <h1>Binary Screensaver</h1>
-          <h2>Not done yet!</h2>
-          	<div class="menu-buttons" style="float:left;">
-	          	<a class="btn btn-visible" style="margin-left:0px" href='/Binary-ScreenSaver'>Visit Project</a>
-	          	<a class="btn btn-visible" href='https://github.com/villa7/binary-sceeensaver'>Visit Github</a>
-	        </div>
-  	      </div>
-  	      <!-- <img class="showcase-img" src="https://raw2.github.com/villa7/villa7.github.io/master/img/colorhelperpreview.JPG"> -->
-      </section>
+	<section class="page fullscreen" id="page-2">
+			<!-- Backbone loads stuff in here -->
+	</section>
 
-      <section class="page4">
-	      <div class="page_container">
-          <h1>NHRobotics</h1>
-          <h2>TeleOp and Autonomous code</h2>
-          	<div class="menu-buttons" style="float:left;">
-	          	<a class="btn btn-visible" style="margin-left:0px" href='https://github.com/villa7/2013-2014-Code/archive/master.zip'>Download</a>
-	          	<a class="btn btn-visible" href='https://github.com/villa7/2013-2014-Code'>Visit Github</a>
-	        </div>
-  	      </div>
-  	      <!-- <img class="showcase-img" src="https://raw2.github.com/villa7/villa7.github.io/master/img/colorhelperpreview.JPG"> -->
-      </section>
+	<!-- <span class="btn-mouseover-message" id="msg-backtotop">Top</span> -->
+	<a href="#page-1" class="pagn uparrow button button-transparent animated" id="btn-backtotop">
+		<i class="fa fa-chevron-circle-up"></i>
+	</a>
+</section>
 
-      <section class="page5">
-	      <div class="page_container">
-          <h1>TestApp</h1>
-          <h2>????</h2>
-          	<div class="menu-buttons" style="float:left;">
-	          	<a class="btn btn-visible" style="margin-left:0px" href='https://github.com/villa7/TestApplication/archive/master.zip'>Download</a>
-	          	<a class="btn btn-visible" href='https://github.com/villa7/TestApplication'>Visit Github</a>
-	        </div>
-  	      </div>
-  	      <!-- <img class="showcase-img" src="https://raw2.github.com/villa7/villa7.github.io/master/img/colorhelperpreview.JPG"> -->
-      </section>
+<section class="fullscreen-overlay"></section>
+<img class="background fullscreen-background" src="http://fc06.deviantart.net/fs70/f/2014/268/d/b/_simplicity_by_xellojel-d80h8ik.jpg" alt="background image" />
+
+<script type="text/template" id="projects">
+   	<div class="col-md-4 col-lg-4 col-sm-12 projectbox animated" id="project-<%= model.get('num') %>">
+   	    <div class="thumbnail project-thumb" title="<%= model.get('title') %>">
+   	        <div class="caption">
+   	            <h4><%= model.get('title') %></h4>
+   	            <i><%= model.get('prev') %></i>
+   	            <p><%= model.get('desc') %></p>
+   	            <a href="<%= model.get('url') %>"><b>Visit -&gt; </b></a>
+   	        </div>
+   	    </div>
     </div>
-  </div>
+</script>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <!-- Init the instantclick -->
-<!--     <script src="js/instantclick.min.js" data-no-instant></script>
-	<script data-no-instant>InstantClick.init();</script> -->
+    <script type="text/javascript">
+    	var stopNum = 0;
+		var Data = Backbone.Model.extend({
+		    defaults: {
+		        title: '',
+		        prev: '',
+		        desc: '',
+		        url: '',
+		        num: ''
+		    }
+		});
+
+		//Source spreadsheet
+		var DataList = Backbone.Collection.extend({
+		    model: Data,
+		    url: 'https://spreadsheets.google.com/feeds/list/0ApDOZ6miZX5idE4yTmRVY1lNMVMzbkIzZlVveFNhd1E/od6/public/values?alt=json' 
+		});
+
+		//JSON reader thingy
+		var AppView = Backbone.View.extend({
+		    //set templates
+		    project: _.template($('#projects').html()),
+		    initialize: function () {
+		    	console.log('getting thing');
+		        this.collection.on('reset', this.render, this);
+		        c = this.collection;
+		        this.collection.fetch({
+		            success: function (model, response) {
+		            	console.log('got thing');
+		                var feed = response['feed'];
+		                var entry = feed['entry'];
+		                var arr = [];
+		                for (var i=0; i<entry.length; i++) {
+		                    obj = {
+		                        "title": entry[i].gsx$title.$t,
+		                        "prev": entry[i].gsx$preview.$t,
+		                        "desc": entry[i].gsx$description.$t,
+		                        "url": 'http://' + entry[i].gsx$url.$t,
+		                        "num": i
+		                    };
+		                    arr.push(obj);
+		                    stopNum++;
+		                }
+		                showProjectList();
+		                c.reset(arr);
+		            },
+		            error: function () {
+		            }
+		        });
+		    },
+
+		    render: function () {
+		        this.collection.each(this.list, this);
+		    },
+
+		    list: function (model) {
+		        
+		            $('#page-2').append(this.project({model: model}));
+		        
+		    }
+		});
+
+		var projectLoader = Backbone.Router.extend({
+		    routes: {
+		        '': 'start',
+		    },
+		    start: function () {
+		        new AppView({collection: new DataList()});
+		    }
+		});
+
+		$(document).ready(function(){
+		    new projectLoader();
+		    Backbone.history.start();
+		});
+
+		function showProjectList() {
+			i = 0;
+			var projLoadInterval = setInterval(function() {
+				$('#project-' + i).addClass('fadeInUp')
+								  .css('visibility','visible');;
+				i++;
+				if (i > stopNum) {
+					clearInterval(projLoadInterval);
+				}
+			}, 100);
+		}
+
+    </script>
+
+	<script src="js/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>InstantClick.init();</script> 
 	
-	<script>
+	<!--<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -151,7 +236,7 @@
 	  ga('create', 'UA-48081162-1', 'villa7.github.io');
 	  ga('send', 'pageview');
 
-	</script>
+	</script>-->
 
-  </body>
+</body>
 </html>

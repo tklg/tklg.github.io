@@ -28,3 +28,23 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('../fonts/quicksand_light-webfont.eot');
+    src: url('../fonts/quicksand_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/quicksand_light-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand_light-webfont.woff') format('woff'),
+         url('../fonts/quicksand_light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'aruallight';
+    src: url('../fonts/arual-webfont.eot');
+    src: url('../fonts/arual-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arual-webfont.woff2') format('woff2'),
+         url('../fonts/arual-webfont.woff') format('woff'),
+         url('../fonts/arual-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

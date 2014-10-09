@@ -1,0 +1,112 @@
+html, 
+body, 
+.background, 
+.fullscreen-overlay,
+.fullscreen-background,
+.fullscreen-body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.fullscreen {
+	height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #89c35c;
+}
+::selection {
+	background: rgba(255,255,255,.1);
+}
+.fullscreen-overlay {
+	z-index: -1;
+	position: fixed !important;
+	background: rgba(0,0,0,.92);
+}
+.background {
+	z-index: -2;
+	position: fixed;
+}
+.main-body {
+	color: #fff;
+	font-family: 'quicksandlight', sans-serif;
+}
+.page {
+	position: relative;
+	/*position: absolute;*/
+}
+.page#page-1 {
+	text-align: center;
+	/*margin-bottom: -21px;*/
+}
+.page#page-2 {
+	/*margin-top: -20px*/
+	padding: 20px 20px 0px 20px;
+}
+.titlebox {
+	height: 200px;
+	width: 400px;
+}
+.downarrow {
+	width: 40px;
+	position: absolute;
+	font-size: 40px;
+	left: 50%;
+	margin-left: -20px;
+	bottom: 5px;
+}
+.uparrow {
+	width: 40px;
+	position: fixed;
+	font-size: 40px;
+	right: 5px;
+	bottom: 5px;
+	visibility: hidden;
+}
+.title {
+	font-size: 40px;
+}
+.subtitle {
+	font-size: 20px;
+}
+.button {
+	-webkit-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+.button-transparent {
+	color: rgba(255,255,255,.1) !important;
+}
+.button-transparent:hover {
+	color: rgba(255,255,255,.4) !important;
+}
+.btn-mouseover-message#msg-page-2 {
+	width: 200px;
+	position: absolute;
+	font-size: 20px;
+	left: 50%;
+	margin-left: -100px;
+	bottom: 55px;
+	visibility: hidden;
+}
+.absolute-center {
+	/* Requires height or width to be set */
+	position: absolute !important;
+	margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.projectbox {
+	visibility: hidden; 
+}
+.project-thumb {
+	border: 1px #222 solid;
+	border-radius: 10px;
+	background: rgba(255,255,255,.05);
+}
+.caption h4, .caption p, .caption i {
+	color: #fff;
+}
