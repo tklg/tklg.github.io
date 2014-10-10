@@ -6,13 +6,15 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>Theodore Kluge</title>
 
+    <!-- LOAD ALL OF THE SCRIPTS FIRST BECAUSE I CAN -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/lettering.min.js"></script>
 	<script src="js/jquery.textillate.js"></script>
 	<script src="js/underscore.min.js"></script>
 	<script src="js/backbone.min.js"></script>
-
+	<!-- AND THE STYLESHEETS TOO -->
+	<link rel="stylesheet" href="css/spinsquare.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/animate.css">
@@ -33,7 +35,39 @@
     	cursorborder: '0px',
     	cursorcolor: "#444"
     });
+    function checkScroll() {
+   		var viewableOffset = $("#page-1").offset().top - $(window).scrollTop();
+   		if (viewableOffset < -300) {
+   			//show returnToTop
+   			$('#btn-backtotop').css('visibility', 'visible')
+   							   .addClass('fadeInUp')
+   							   .removeClass('fadeOutDown');
+   			$('#btn-page-2').addClass('fadeOutDown')
+   							.removeClass('fadeInUp');
+
+   			if (canLoadProjects == false) {
+   				canLoadProjects = true;
+   				new projectLoader();
+		    	Backbone.history.start();
+   			}
+    		if (canShowProjectList) {
+    			showProjectList();
+    			canShowProjectList = false;
+    		}
+    	} else {
+    		//hide returnToTop
+    		$('#btn-backtotop').addClass('fadeOutDown')
+    						   .removeClass('fadeInUp');
+    						   // .css('visibility', 'hidden');
+    		$('#btn-page-2').addClass('fadeInUp')
+    						.removeClass('fadeOutDown');
+    	}
+    }
+
   	$(document).ready(function(){
+  		canShowProjectList = false;
+  		canLoadProjects = false;
+
     	$('a[href*=#]:not([href=#])').click(function() {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 	      var target = $(this.hash);
@@ -63,22 +97,7 @@
     	});
 
     	$(window).scroll(function() {
-    		var viewableOffset = $("#page-1").offset().top - $(window).scrollTop();
-    		if (viewableOffset < -300) {
-    			//show returnToTop
-    			$('#btn-backtotop').css('visibility', 'visible')
-    							   .addClass('fadeInUp')
-    							   .removeClass('fadeOutDown');
-    			$('#btn-page-2').addClass('fadeOutDown')
-    							.removeClass('fadeInUp');
-    		} else {
-    			//hide returnToTop
-    			$('#btn-backtotop').addClass('fadeOutDown')
-    							   .removeClass('fadeInUp');
-    							   // .css('visibility', 'hidden');
-    			$('#btn-page-2').addClass('fadeInUp')
-    							.removeClass('fadeOutDown');
-    		}
+    		checkScroll();
     	});
 
     	$('#btn-page-2').mouseover(function() {
@@ -109,26 +128,31 @@
 	</section>
 
 	<section class="page fullscreen" id="page-2">
+		<div class="loader">
+			<span class="spinner"></span>
+		</div>
+
 			<!-- Backbone loads stuff in here -->
 	</section>
 
-	<!-- <span class="btn-mouseover-message" id="msg-backtotop">Top</span> -->
+	<!-- <span class="btn-mouseover-message animated" id="msg-backtotop">Top</span> -->
 	<a href="#page-1" class="pagn uparrow button button-transparent animated" id="btn-backtotop">
 		<i class="fa fa-chevron-circle-up"></i>
 	</a>
+
 </section>
 
 <section class="fullscreen-overlay"></section>
 <img class="background fullscreen-background" src="http://fc06.deviantart.net/fs70/f/2014/268/d/b/_simplicity_by_xellojel-d80h8ik.jpg" alt="background image" />
 
 <script type="text/template" id="projects">
-   	<div class="col-md-4 col-lg-4 col-sm-12 projectbox animated" id="project-<%= model.get('num') %>">
+   	<div class="col-md-6 col-lg-4 col-sm-6 col-xs-12 projectbox animated" id="project-<%= model.get('num') %>">
    	    <div class="thumbnail project-thumb" title="<%= model.get('title') %>">
    	        <div class="caption">
    	            <h4><%= model.get('title') %></h4>
-   	            <i><%= model.get('prev') %></i>
+   	            <!--<img src="<%= model.get('prev') %>" alt="preview image"></img>-->
    	            <p><%= model.get('desc') %></p>
-   	            <a href="<%= model.get('url') %>"><b>Visit -&gt; </b></a>
+   	            <a href="<%= model.get('url') %>"><b>Visit -&gt </b></a>
    	        </div>
    	    </div>
     </div>
@@ -157,12 +181,13 @@
 		    //set templates
 		    project: _.template($('#projects').html()),
 		    initialize: function () {
-		    	console.log('getting thing');
+		    	$('.loader').fadeIn();
+		    	console.info("Loading project list");
 		        this.collection.on('reset', this.render, this);
 		        c = this.collection;
 		        this.collection.fetch({
 		            success: function (model, response) {
-		            	console.log('got thing');
+		            	console.info('Loaded');
 		                var feed = response['feed'];
 		                var entry = feed['entry'];
 		                var arr = [];
@@ -174,10 +199,15 @@
 		                        "url": 'http://' + entry[i].gsx$url.$t,
 		                        "num": i
 		                    };
+		                    if (i == 0) {
+		                    	//$('img.background').attr('src', entry[i].gsx$background.$t);
+		                    }
 		                    arr.push(obj);
 		                    stopNum++;
 		                }
-		                showProjectList();
+		                $('.loader').fadeOut();
+		                canShowProjectList = true;
+		                checkScroll();
 		                c.reset(arr);
 		            },
 		            error: function () {
@@ -203,11 +233,6 @@
 		    start: function () {
 		        new AppView({collection: new DataList()});
 		    }
-		});
-
-		$(document).ready(function(){
-		    new projectLoader();
-		    Backbone.history.start();
 		});
 
 		function showProjectList() {

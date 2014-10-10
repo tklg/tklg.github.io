@@ -16,10 +16,6 @@ body,
     margin: 0;
     padding: 0;
 }
-a {
-	text-decoration: none;
-	color: #89c35c;
-}
 ::selection {
 	background: rgba(255,255,255,.1);
 }
@@ -46,7 +42,7 @@ a {
 }
 .page#page-2 {
 	/*margin-top: -20px*/
-	padding: 20px 20px 0px 20px;
+	padding: 40px 40px 0px 40px;
 }
 .titlebox {
 	height: 200px;
@@ -65,7 +61,7 @@ a {
 	position: fixed;
 	font-size: 40px;
 	right: 5px;
-	bottom: 5px;
+	bottom: 0;
 	visibility: hidden;
 }
 .title {
@@ -106,7 +102,34 @@ a {
 	border: 1px #222 solid;
 	border-radius: 10px;
 	background: rgba(255,255,255,.05);
+	max-height: 424px;
 }
-.caption h4, .caption p, .caption i {
+.caption h1,
+.caption h2,
+.caption h3,
+.caption h4,
+.caption i,
+.caption p,
+.caption ul,
+.caption ol {
 	color: #fff;
+}
+.caption img {
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	border: none;
+}
+a {
+	text-decoration: none;
+	color: #89c35c;
+}
+a:hover {
+	color: #437c17;
+}
+.loader {
+	display: none;
+	z-index: 100;
 }
