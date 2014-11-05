@@ -1,6 +1,0 @@
-[submodule "color-helper"]
-	path = color-helper
-	url = https://github.com/villa7/color-helper.git
-[submodule "binary-screensaver"]
-	path = binary-screensaver
-	url = https://github.com/villa7/Binary-ScreenSaver.git
