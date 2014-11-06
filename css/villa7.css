@@ -11,8 +11,8 @@ body,
     position: absolute;
 }
 .fullscreen {
-	height: 100%;
-    width: 100%;
+	height: 100% !important;
+    width: 100% !important;
     margin: 0;
     padding: 0;
 }
@@ -42,7 +42,7 @@ body,
 }
 .page#page-2 {
 	/*margin-top: -20px*/
-	padding: 40px 40px 0px 40px;
+	/*padding: 40px 40px 0px 40px;*/
 }
 .titlebox {
 	height: 200px;
@@ -99,10 +99,15 @@ body,
 	visibility: hidden; 
 }
 .project-thumb {
-	border: 1px #222 solid;
+	/*border: 1px #222 solid;*/
+	border: none;
 	border-radius: 10px;
 	background: rgba(255,255,255,.05);
-	max-height: 424px;
+	/*background: -webkit-linear-gradient(top, rgba(255,255,255,.05), rgba(255,255,255,.01));
+  	background: -o-linear-gradient(bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));
+  	background: -moz-linear-gradient(bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));
+  	background: linear-gradient(to bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));*/
+  	max-height: 424px;
 }
 .caption h1,
 .caption h2,
@@ -123,13 +128,33 @@ body,
 	border: none;
 }
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 	color: #89c35c;
 }
-a:hover {
-	color: #437c17;
+.visit-link {
+	width: 100%;
+}
+a span, a p {
+	margin-bottom: 0px;
+	/*margin-left: -13px;
+	width: 100%;*/
+	color: #6aa121 !important;
+	padding: 2px 0;
+	-webkit-transition: all .4s ease;
+          transition: all .4s ease;
+}
+a span:hover, a p:hover {
+	/*background: rgba(255,255,255,.06);*/
+	border-radius: 5px;
+	color: #98ff98 !important;
 }
 .loader {
 	display: none;
 	z-index: 100;
+}
+
+.min-glass {
+	position: absolute;
+	-webkit-transition: all .5s ease;
+          transition: all .5s ease;
 }
