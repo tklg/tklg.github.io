@@ -124,15 +124,6 @@
     							   .removeClass('fadeInUp')
     							   
 		});
-		$('.visit-link').mouseover(function() {
-			$('.visit-link').css('visibility', 'visible')
-    							   .addClass('fadeInUp')
-    							   .removeClass('fadeOutDown');
-		}).mouseout(function() {
-			$('.visit-link').addClass('fadeOutDown')
-    							   .removeClass('fadeInUp')
-    							   
-		});
 	});
 
 	</script>
@@ -199,7 +190,7 @@
 		//Source spreadsheet
 		var DataList = Backbone.Collection.extend({
 		    model: Data,
-		    url: 'https://spreadsheets.google.com/feeds/list/0ApDOZ6miZX5idE4yTmRVY1lNMVMzbkIzZlVveFNhd1E/od6/public/values?alt=json' 
+		    url: 'https://spreadsheets.google.com/feeds/list/1Xg_IU23Pf60PIhwVgf5VLQzO7XYZOWbOuFMZvp4uiR8/1/public/values?alt=json' 
 		});
 
 		//JSON reader thingy
