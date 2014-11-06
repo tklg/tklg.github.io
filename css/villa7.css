@@ -102,11 +102,11 @@ body,
 	/*border: 1px #222 solid;*/
 	border: none;
 	border-radius: 10px;
-	background: rgba(255,255,255,.05);
-	/*background: -webkit-linear-gradient(top, rgba(255,255,255,.05), rgba(255,255,255,.01));
+	/*background: rgba(255,255,255,.05);*/
+	background: -webkit-linear-gradient(top, rgba(255,255,255,.05), rgba(255,255,255,.01));
   	background: -o-linear-gradient(bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));
   	background: -moz-linear-gradient(bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));
-  	background: linear-gradient(to bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));*/
+  	background: linear-gradient(to bottom, rgba(255,255,255,.05), rgba(255,255,255,.01));
   	max-height: 424px;
 }
 .caption h1,
@@ -144,8 +144,6 @@ a span, a p {
           transition: all .4s ease;
 }
 a span:hover, a p:hover {
-	/*background: rgba(255,255,255,.06);*/
-	border-radius: 5px;
 	color: #98ff98 !important;
 }
 .loader {
