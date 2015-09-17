@@ -3,14 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>Theodore Kluge</title>
 
+    <!-- LOAD ALL OF THE SCRIPTS FIRST BECAUSE I CAN -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/lettering.min.js"></script>
+	<script src="js/jquery.textillate.js"></script>
 	<!-- AND THE STYLESHEETS TOO -->
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.013/css/hack.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+	<link rel="stylesheet" href="css/spinsquare.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/villa7.css">
 		
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,84 +25,158 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-<body>
 
-<header class="header">
-	<div class="nav">
-		<a class="waves-effect waves-light btn btn-flat nav-sub" href="#projects">Projects</a>
-		<a class="waves-effect waves-light btn btn-flat nav-sub" href="#about">About</a>
-	</div>
-</header>
-<main>
-<a href="https://github.com/villa7"><img class="profpic" src="https://avatars0.githubusercontent.com/u/1696813" alt="github profile picture" /></a>
-<h1 class="title">Theodore Kluge</h1>
-<h4 class="subtitle">villa7_</h4>
-<div>
-	<section class="projectlist" id="projects">
-		<section class="projectlist-content container" id="projectlist-content">
-			
-		</section>
-	</section>
-	<section class="about container" id="about">
-		<p>
-			This is going to be Lipsum because I do not feel like writing about myself. Fusce metus ligula, consequat eu turpis id, consequat ornare ipsum. Aenean id pharetra metus, ut tincidunt sem. Integer posuere diam sed est pharetra cursus. Nullam pharetra ligula eu felis fermentum, ut pellentesque nunc ornare. Etiam venenatis turpis sed turpis laoreet malesuada. Integer tristique enim est, vitae auctor metus vestibulum quis. Vivamus tristique eu ante at ultricies. Curabitur nec malesuada eros. Praesent vel pellentesque augue. In id nulla id diam tempus auctor a a ex. Morbi dignissim fringilla mollis. Aliquam nec lectus risus. Etiam eu tellus quis lorem viverra ullamcorper nec ut purus. Quisque iaculis gravida justo id volutpat. Curabitur auctor metus eget gravida viverra.
-		</p>
-		<p>
-		Etiam dictum tellus id ex scelerisque tempus. Fusce tempus, ex nec tristique feugiat, risus est condimentum quam, vitae venenatis nunc erat in nulla. Ut lacinia eros consectetur, placerat neque placerat, consequat est. Donec volutpat, neque in dapibus auctor, diam libero lobortis lacus, id tempus lorem quam vitae est. Sed bibendum congue ante nec interdum. Aenean condimentum interdum massa, vitae molestie nibh laoreet volutpat. Donec ipsum orci, volutpat et suscipit semper, auctor quis libero. Fusce faucibus consequat ante, ac posuere ex imperdiet imperdiet. Nulla facilisi. Donec at nunc bibendum, varius neque ut, fringilla nunc. Aenean a eleifend felis. Nullam hendrerit, dolor eget porttitor imperdiet, lorem risus cursus leo, euismod tempus augue erat id diam.
-		</p>
-	</section>
-</div>
-</main>
-<footer class="page-footer">
-	<div class="footer-copyright">
-	    <div class="container">
-		    &copy; 2015 Theodore Kluge
-		</div>
-    </div>
-</footer>
-</body>
-<script type="text/template" id="project">
-<a href="<%= model.get('url') %>">
-   	<div class="min-glass projectbox waves-effect" id="project-<%= model.get('num') %>">
-   	    <div class="thumbnail project-thumb">
-   	        <div class="caption">
-   	            <span class="name"><%= model.get('title') %></span>
-   	            <p><%= model.get('desc') %></p>
-   	        </div>
-   	    </div>
-    </div>
-</a>
-<hr class="divider">
-</script>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-	<script src="js/jquery.nicescroll.js"></script>
-    <script src="js/underscore.min.js"></script>
-    <script src="js/backbone.min.js"></script>
     <script>
     $("html").niceScroll({ 
     	scrollspeed: 80,
     	mousescrollstep: 60,
     	cursorborder: '0px',
-    	cursorcolor: "rgba(0,0,0,.3)"
+    	cursorcolor: "#444"
     });
-    
+    function checkScroll() {
+   		var viewableOffset = $("#page-1").offset().top - $(window).scrollTop();
+   		if (viewableOffset < -300) {
+   			//show returnToTop
+   			$('#btn-backtotop').css('visibility', 'visible')
+   							   .addClass('fadeInUp')
+   							   .removeClass('fadeOutDown');
+   			$('#btn-page-2').addClass('fadeOutDown')
+   							.removeClass('fadeInUp');
+
+   			if (canLoadProjects == false) {
+   				canLoadProjects = true;
+   				new projectLoader();
+		    	Backbone.history.start();
+		    	console.log("Project list can now be loaded");
+   			}
+    		if (canShowProjectList) {
+    			buildProjectList();
+    			//showProjectList();
+    			canShowProjectList = false;
+    		}
+    	} else {
+    		//hide returnToTop
+    		$('#btn-backtotop').addClass('fadeOutDown')
+    						   .removeClass('fadeInUp');
+    						   // .css('visibility', 'hidden');
+    		$('#btn-page-2').addClass('fadeInUp')
+    						.removeClass('fadeOutDown');
+    	}
+    }
+
   	$(document).ready(function(){
-  		new projectLoader();
-  		Backbone.history.start();
-  		$('a.nav-sub').on('click', function(e) {
-  			e.preventDefault();
-  			console.log('switchto: ' + $(this).attr('href'));
-  			$($(this).attr('href')).css('display','block')
-  									.siblings().css('display','none');
-  		});
+  		canShowProjectList = false;
+  		canLoadProjects = false;
+  		var projLoadInterval;
+
+    	$('a[href*=#]:not([href=#])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        $('html,body').animate({
+		          scrollTop: target.offset().top
+		        }, 1000);
+		        return false;
+		      }
+		    }
+	    });
+
+    	$("h1.title").textillate({
+    		in: {
+                    effect: 'bounceInDown', //fadeinDownBig
+                    delay: 50,
+                    shuffle: true
+                }
+    	});
+    	$("h3.subtitle").textillate({
+    		in: {
+                    effect: 'bounceInUp', //fadeInUpBig
+                    delay: 50,
+                    shuffle: true
+                }
+    	});
+
+    	$(window).scroll(function() {
+    		checkScroll();
+    	});
+
+    	var doit;
+    	winHeight = $(window).height();
+		winWidth = $(window).width();
+    	$(window).resize(function() {
+		  clearTimeout(doit);
+		  doit = setTimeout(function() {
+		    winHeight = $(window).height();
+		    winWidth = $(window).width();
+		    //clearInterval(projLoadInterval);
+		    buildProjectList();
+		    console.log('resized');
+		}, 500);
+		});
+
+    	$('#btn-page-2').mouseover(function() {
+			$('#msg-page-2').css('visibility', 'visible')
+    							   .addClass('fadeInUp')
+    							   .removeClass('fadeOutDown');
+		}).mouseout(function() {
+			$('#msg-page-2').addClass('fadeOutDown')
+    							   .removeClass('fadeInUp')
+    							   
+		});
 	});
 
-    	var stopNum = 0;
-    	var winWidth = $(window).width();
+	</script>
+  </head>
+<body>
+  
+<section class="main-body fullscreen-body">
+	<section class="page fullscreen" id="page-1">
+		<div class="titlebox absolute-center">
+			<h1 class="title" style="visibility:hidden">Theodore Kluge</h1>
+			<h3 class="subtitle" style="visibility:hidden">Villa7_</h3>
+		</div>
+		<span class="btn-mouseover-message animated" id="msg-page-2">My Projects</span>
+		<a href="#page-2" class="pagn downarrow button button-transparent animated fadeInUp" id="btn-page-2">
+			<i class="fa fa-chevron-circle-down"></i>
+		</a>
+	</section>
 
+	<section class="page fullscreen" id="page-2">
+		<div class="loader">
+			<span class="spinner"></span>
+		</div>
+
+			<!-- Backbone loads stuff in here -->
+	</section>
+
+	<!-- <span class="btn-mouseover-message animated" id="msg-backtotop">Top</span> -->
+	<a href="#page-1" class="pagn uparrow button button-transparent animated" id="btn-backtotop">
+		<i class="fa fa-chevron-circle-up"></i>
+	</a>
+
+</section>
+
+<section class="fullscreen-overlay"></section>
+<img class="background fullscreen-background" src="http://i.imgur.com/0P1Cryf.jpg" alt="background image" />
+
+<script type="text/template" id="projects">
+   	<div class="min-glass projectbox animated" id="project-<%= model.get('num') %>">
+   	    <div class="thumbnail project-thumb" title="<%= model.get('title') %>">
+   	        <div class="caption">
+   	            <h4><%= model.get('title') %></h4>
+   	            <!--<img src="<%= model.get('prev') %>" alt="preview image"></img>-->
+   	            <p><%= model.get('desc') %></p>
+   	            <a href="<%= model.get('url') %>"><span class="visit-link animated" >Visit -&gt </span></a>
+   	        </div>
+   	    </div>
+    </div>
+</script>
+
+    <script src="js/underscore.min.js"></script>
+    <script src="js/backbone.min.js"></script>
+    <script type="text/javascript">
+    	var stopNum = 0;
 		var Data = Backbone.Model.extend({
 		    defaults: {
 		        title: '',
@@ -116,9 +196,9 @@
 		//JSON reader thingy
 		var AppView = Backbone.View.extend({
 		    //set templates
-		    project: _.template($('#project').html()),
+		    project: _.template($('#projects').html()),
 		    initialize: function () {
-		    	//$('.loader').fadeIn();
+		    	$('.loader').fadeIn();
 		    	console.info("Loading project list");
 		        this.collection.on('reset', this.render, this);
 		        c = this.collection;
@@ -142,10 +222,10 @@
 		                    arr.push(obj);
 		                    stopNum++;
 		                }
-		                //$('.loader').fadeOut();
+		                $('.loader').fadeOut();
+		                canShowProjectList = true;
 		                console.log("Project list can now be displayed");
-		                //showProjectList();
-		                //checkScroll();
+		                checkScroll();
 		                c.reset(arr);
 		            },
 		            error: function () {
@@ -159,7 +239,7 @@
 
 		    list: function (model) {
 		        
-		            $('#projectlist-content').append(this.project({model: model}));
+		            $('#page-2').append(this.project({model: model}));
 		        
 		    }
 		});
@@ -172,6 +252,12 @@
 		        new AppView({collection: new DataList()});
 		    }
 		});
+
+		function buildProjectList() {
+			console.log("Building project list...");
+			showProjectList();
+		}
+
 		function showProjectList() {
 			i = 0;
 			if (winWidth > 1600) { //4
@@ -185,7 +271,7 @@
 			}
 
 			var	glass_container_padding = 40, /*parseInt($('#page-2').css("padding-left")),*/
-				glass_container_width = $('#projectlist-content').width(),
+				glass_container_width = $('#page-2').width(),
 				glass_currentRow = 1,
 				glass_left = glass_container_padding,
 				glass_top = glass_container_padding,
@@ -246,6 +332,9 @@
 		}
 
     </script>
+
+	<script src="js/instantclick.min.js" data-no-instant></script>
+	<script data-no-instant>InstantClick.init();</script> 
 	
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -256,6 +345,7 @@
 	  ga('create', 'UA-48081162-1', 'villa7.github.io');
 	  ga('send', 'pageview');
 
-	</script>
+	</script>-
 
+</body>
 </html>
