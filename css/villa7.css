@@ -24,9 +24,18 @@ main {
 .header {
 	width: 100%;
 	height: 40%;
-	min-height: 300px;
 	background: #009688;
 	color: white;
+}
+@media screen and (min-height: 700px) {
+	.header {
+		min-height: 40%;
+	}
+}
+@media screen and (max-height: 700px) {
+	.header {
+		min-height: 280px;
+	}
 }
 .profpic {
 	height: 250px;
