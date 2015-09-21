@@ -29,7 +29,9 @@
 	</div>
 </header>
 <main>
-<a href="https://github.com/villa7"><img class="profpic" src="https://avatars0.githubusercontent.com/u/1696813" alt="github profile picture" /></a>
+<section class="img-align">
+	<a href="https://github.com/villa7" class="profpic-link"><img class="profpic" src="https://avatars0.githubusercontent.com/u/1696813" alt="github profile picture" /></a>
+</section>
 <h1 class="title">Theodore Kluge</h1>
 <h4 class="subtitle">villa7_</h4>
 <div>
@@ -133,11 +135,16 @@
 		                        "title": entry[i].gsx$title.$t,
 		                        "prev": entry[i].gsx$preview.$t,
 		                        "desc": entry[i].gsx$description.$t,
-		                        "url": 'http://' + entry[i].gsx$url.$t,
+		                        "url": entry[i].gsx$url.$t,
 		                        "num": i
 		                    };
 		                    if (i == 0) {
 		                    	//$('img.background').attr('src', entry[i].gsx$background.$t);
+		                    }
+		                    if (obj.url.substr(0, 5) == 'https') {
+		                    	
+		                    } else {
+		                    	obj.url = 'http://' + obj.url;
 		                    }
 		                    arr.push(obj);
 		                    stopNum++;
