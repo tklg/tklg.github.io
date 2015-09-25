@@ -1,0 +1,206 @@
+
+<html>
+<head>
+  <title>Making Of</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>if (!window.jQuery) { document.write('<script src="jquery.js"><\/script>'); }</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+   ga('create', 'UA-48081162-1', 'villa7.github.io');
+   ga('send', 'pageview');
+   $('a.nav-sub').on('click', function(e) {
+  			e.preventDefault();
+  			console.log('switchto: ' + $(this).attr('href'));
+  			$($(this).attr('href')).css('display','block')
+  									.siblings().css('display','none');
+  		});
+
+ </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  <style>
+    #speed {
+      display: none;
+    }
+    #pause {
+      cursor: pointer;
+    }
+    .contain {
+    	display: flex;
+	    flex-direction: column;
+    }
+    ::selection {background: #1DE9B6;color: #00796B;}
+  </style>
+</head>
+<body style="margin:0">
+  <div id="speed">
+    <div>
+      <h4>speed</h4>
+      <span id="pause">[pause]</span>
+    </div>
+    <input type="range" min="0" max="20" value="16" id="slider" class="l">
+  </div>
+  <script>
+  (function() {
+    var nl, openCSS, openAnim, animCount, markup, styles, time, writeStyleChar, writeStyles, paused;
+
+    text = "\n/* \n * Thanks to\n * pen#PwLXXP and Jake Albaugh for the demo. \n */\n\n#speed {\n  display: block; position: fixed;\n  z-index: 100; padding: 5px;\n  top: 200px; left: calc(50% - 100px);\n}\n#speed h4 {\n  display: inline-block; margin: 5px;\n font-size: 20px;\n}\n#speed .l {\n  float: left; margin: 1px 0;\n}\n.pre { \n  overflow: auto;\n  position: fixed; width: 50%;\n  padding: 24px 12px;\n  top: 75%; \nheight: 25%; \nleft: 0;\n z-index: 100;\n}\n.pre, #speed {\n  background-color: #313744; color: #009688;\n  transition: all 500ms;\n  box-sizing: border-box;\nopacity: 0.9;\n}\n/*\n * Move these over...\n */\n#speed {\n left: 10px;\n top: calc(75% - 45px);\n}\n.contain {\n  height:100%%;\n font-family: verdana, arial, helvetica, sans-serif;\nwidth: 100%;\npadding: 0;\nmargin: 0;\n}\n.contain a {\n  text-decoration: none; color: #369;\n}\n.contain p {\n  margin: 0;\n}\n::-webkit-scrollbar {\n width: 0.6em;\n}\n::-webkit-scrollbar-track {\n -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);\n background: #40455E;\n}\n::-webkit-scrollbar-thumb {\n background-color: #1DE9B6;\n outline: 1px solid #009688;\n}\n/* \n* Now for some HTML. \n */\n#html-text {\n  transition: left 300ms;\n  left: 50%;\n}\n\n"+
+"<header class='header'>\n <div class='nav'>\n  <a id='a' class='waves-effect waves-light btn btn-flat nav-sub' href='#projects'>Projects</a>\n  <a id='a' class='waves-effect waves-light btn btn-flat nav-sub' href='#about'>About</a>\n </div>\n</header>\n<main id='all'>\n"+
+"#switch,\nhtml,\nbody {\n height: 100%;\n width: 100%;\n margin: 0;\n padding: 0;\n font-family: 'Roboto', sans-serif;\n display: flex;\n    min-height: 100vh;\n    flex-direction: column;\n}\n#all {\n    flex: 1 0 auto;\n}\n.header {\n width: 100%;\n height: 40%;\n background: #009688;\n color: white;\n}\n@media screen and (min-height: 700px) {\n .header {\n  min-height: 40%;\n }\n}\n@media screen and (max-height: 700px) {\n .header {\n  min-height: 280px;\n }\n}\n.btn,\na.btn-flat {\n color: white\n border: none;\n border-radius: 3px;\n}\n.nav {\n padding: 10px;\n background: #00796B;\n text-align: right;\n min-height: 60px;\n}\n.nav-sub {\n color: white !important;\n background: #1de9b6;\n margin: 0 0 0 10px;\n}\n"+
+"<section class='img-align'>\n <a id='a' href='https://github.com/villa7' class='profpic-link'><img class='profpic' src='https://avatars0.githubusercontent.com/u/1696813' alt='github profile picture' /></a>\n</section>\n"+
+"#switch,\n.img-align {\n width: 100%;\n text-align: center;\n margin-top: -200px;\n height: 250px;\n}\n/*\n* Cute foxeh\n*/\n.profpic {\n height: 250px;\n width: 250px;\n border-radius: 50%;\n border: 4px solid white;\n cursor: pointer;\n}\n"+
+"<h1 class='title'>Theodore Kluge</h1>\n<h4 class='subtitle'>villa7_</h4>\n"+
+".title {\n text-align: center;\n margin: 6px 0;\n font-size: 35px;\n}\n.subtitle {\n text-align: center;\n margin: 0 0 16px 0;\n font-size: 25px;\n}\n"+
+"\n<!-- Now we add the project list.\nIn the actual site, these are loaded in from Google Sheets. -->\n\n<div>\n <section class='projectlist' id='projects'>\n  <section class='projectlist-content container' id='projectlist-content'>\n<a id='a' href='http://villa7.github.io/color-helper'>\n   	<div class='min-glass projectbox waves-effect' id='project-0'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nColor Helper</span>\n   	            <p>\nWebcolors on the web.<br>\nA list of colors that give the hex, rgb, cmyk, hsv, and hsl values of the color.<br>\nAlso provides complimentary colors etc.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n"+
+".projectlist {\n	width: 100%;\n}\n.projectlist-content {\n	padding-bottom: 40px;\n}\n#hr {\n    display: block;\n    height: 1px;\n    border: 0;\n    border-top: 1px solid #eee;\n    margin: 0;\n    padding: 0; \n}\n#hr:last-of-type {\n	display: none;\n}\n#a {\n	color: black;\n}\n.name {\n	color: #00796B;\n}\n.project-thumb span {\n	font-size: 25px;\n}\n.project-thumb p {\n	margin: 7px 0 16px 0;\n}\n.projectbox {\n	padding: 13px 19px 0 19px;\n	width: 100%;\n}\n"+
+"<a id='a' href='http://villa7.github.io/Binary-ScreenSaver'>\n   	<div class='min-glass projectbox waves-effect' id='project-1'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nBinary Clock</span>\n   	            <p>\nThe javascript version of a binary clock that I was going to try to make into a screensaver with C#, but gave up on.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://villa7.github.io/css-game'>\n   	<div class='min-glass projectbox waves-effect' id='project-2'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nCSS Game</span>\n   	            <p>\nPointless easy game in which you choose the correct styling of an element.<br>\nThis was what I used to learn how arrays work.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://villa7.github.io/cscroller'>\n   	<div class='min-glass projectbox waves-effect' id='project-3'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nCScroller</span>\n   	            <p>\nHackerTyper for lazy people.<br>\nTakes a text file and prints it out, letter by letter.<br>\nThis makes a nice screensaver.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://villa7.github.io/clocks/wordclock'>\n   	<div class='min-glass projectbox waves-effect' id='project-4'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nWordClock</span>\n   	            <p>\nA circular clock of words. Square and line clocks are also planned but will never happen.<br>\nThis also makes a nice screensaver.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://doc.highlandsrobotics.com'>\n   	<div class='min-glass projectbox waves-effect' id='project-5'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nBlag</span>\n   	            <p>\nA simple blog currently being used for the Highlands Robotics documentation website. This is not done, and never will be.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://3983nhrobotics.github.io'>\n   	<div class='min-glass projectbox waves-effect' id='project-6'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nHighlands Robotics</span>\n   	            <p>\nA website to show off the Highlands Robotics robot's code</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://github.com/3983NHRobotics/2014-FTC'>\n   	<div class='min-glass projectbox waves-effect' id='project-7'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nFTC - 2014</span>\n   	            <p>\nCode for the 2014 robot</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://tkluge.net'>\n   	<div class='min-glass projectbox waves-effect' id='project-8'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nThis Site</span>\n   	            <p>\nI wanted to have a thing to see. Bootstrap's grid system left gaps everywhere, so I looked to mosaic.js. At the time, I couldn't figure out how it worked, so I made this grid thing myself. The grid system is currently pointless because all of these are in a single column though</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://villa7.github.io/console-calculator'>\n   	<div class='min-glass projectbox waves-effect' id='project-9'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nConsole Calculator</span>\n   	            <p>\nBecause node wasn't a pretty enough calculator, I have a JS console in the browser that can also graph stuff.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='https://foxfile.org'>\n   	</a>\n<div class='min-glass projectbox waves-effect' id='project-10'>\n<a id='a' href='https://foxfile.org'>\n   	    </a>\n<div class='thumbnail project-thumb'>\n<a id='a' href='https://foxfile.org'>\n   	        </a>\n<div class='caption'>\n<a id='a' href='https://foxfile.org'>\n   	            <span class='name'>\nFoxFile</span>\n   	            </a>\n<p>\n<a id='a' href='https://foxfile.org'>\nA file manager for cloud storage. This project is a self challenge to recreate the service that </a>\n<a id='a' href='http://copy.com'>\ncopy.com</a>\n provides without knowing how it works. It is currently unfinished, but what is there works!</p>\n   	        </div>\n   	    </div>\n    </div>\n<hr id='hr' class='divider'>\n<a id='a' href='http://github.com/villa7/FoxFileApp'>\n   	<div class='min-glass projectbox waves-effect' id='project-11'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nFoxFile App</span>\n   	            <p>\nAn Android application that is a mobile client for FoxFile. Is still a WIP.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://villa7.github.io/APCSFinal/arrays'>\n   	<div class='min-glass projectbox waves-effect' id='project-12'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nAPCS Final</span>\n   	            <p>\nFinal Project for AP Computer Science, meant to explain arrays to other students.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://luc.tkluge.net/pixx'>\n   	<div class='min-glass projectbox waves-effect' id='project-13'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nPIXX</span>\n   	            <p>\nA private image gallery, for Luc.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://luc.tkluge.net/imghost'>\n   	<div class='min-glass projectbox waves-effect' id='project-14'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nimgHost</span>\n   	            <p>\nA public image hosting thingy, also for Luc.</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n<a id='a' href='http://villa7.ngrok.com/v7'>\n   	<div class='min-glass projectbox waves-effect' id='project-15'>\n   	    <div class='thumbnail project-thumb'>\n   	        <div class='caption'>\n   	            <span class='name'>\nToDo:</span>\n   	            <p>\n</p>\n<ul>\n<li>\nMore projects!</li>\n</ul>\n<p>\n</p>\n   	        </div>\n   	    </div>\n    </div>\n</a>\n<hr id='hr' class='divider'>\n</section>\n </section>\n <section class='about container' id='about'>\n  <p>\n   This is going to be Lipsum because I do not feel like writing about myself. Fusce metus ligula, consequat eu turpis id, consequat ornare ipsum.\n  </p>\n </section>\n</div>\n</main>\n<footer class='page-footer'>\n <div class='footer-copyright'>\n     <div class='container'>\n      &copy; 2015 Theodore Kluge\n  </div>\n    </div>\n</footer>\n"+
+"#switch,\nfooter.page-footer {\n padding: 0;\n margin: 0;\n background: #009688;\n}\n.links {\n color: rgba(255,255,255,0.8);}\n.about {\n	display: none;\n}\n\n\n"+
+
+"<!--\n    Thanks again to Jake Albaugh for the CSS demo:\n    http://codepen.io/jakealbaugh/full/PwLXXP/\n -->";
+
+    nl = true;
+    openCSS = false;
+    openAmin = false;
+    animCount = 0;
+
+    writeStyleChar = function(which) {
+      markup = $('#html-text').html();
+      styles = $('#style-text').html();
+
+      switch (which) {
+        case '@':
+          if (nl) {
+            //css
+            styles += '\n\n' + which;
+            openCSS = true;
+            openAnim = true;
+          } else if (!openCSS) {
+            //html
+            markup += which;
+          }
+        break;
+
+        case '/':
+          if (nl) {
+            //css
+            styles += '\n\n' + which;
+            openCSS = true;
+          } else if (openCSS) {
+            styles += which;
+            openCSS = false;
+          } else if (!openCSS) {
+            //html
+            markup += which;
+          }
+        break;
+
+        case '.':
+          if (nl) {
+            styles += '\n\n' + which;
+            openCSS = true;
+          } else if (openCSS) {
+            styles += which;
+          } else if (!openCSS) {
+            //html
+            markup += which;
+          }
+        break;
+
+        case '#':
+        case ':':
+          if (nl) {
+            styles += '\n\n' + which;
+            openCSS = true;
+          } else if (openCSS) {
+            styles += which;
+          } else if (!openCSS) {
+            //html
+            markup += which;
+          }
+        break;
+
+        case '}':
+          if (openAnim) {
+            styles += which;
+            if (animCount > 1) {
+              animCount = 0;
+              openAnim = false;
+              openCSS = true;
+            } else {
+              animCount += 1;
+              openAnim = true;
+              openCSS = true;
+            }
+          } else if (openCSS) {
+            styles += which;
+            openCSS = false;
+          } else if (!openCSS) {
+            //html
+            markup += which;
+          }
+        break;
+
+        default:
+          if (openCSS) {
+            styles += which;
+          } else if (!openCSS) {
+            //html
+            markup += which;
+          }
+      }
+
+      nl = ((which === '\n') ? true : false);
+
+      $('#style-text').html(styles);
+      $('#html-text').html(markup);
+      myMarkup = $("<div />").html(markup).text();
+      $('.contain').html(myMarkup);
+      $('#style-tag').html(styles);
+    };
+
+    writeStyles = function(message) {
+      if (!paused) {
+        var pre;
+        if (index < message.length) {
+          pre = document.getElementById('style-text');
+          pre.scrollTop = pre.scrollHeight;
+          pres = document.getElementById('html-text');
+          pres.scrollTop = pres.scrollHeight;
+          writeStyleChar(message[index++]);
+          setTimeout((function() {
+            writeStyles(message, time);
+          }), time);
+        }
+      }
+    };
+
+    $('body').append("  <style id=\"style-tag\"></style><div class=\"contain\"></div><pre class=\"pre z-index-2\" id=\"html-text\"></pre><pre class=\"pre z-index-2\" id=\"style-text\"></pre>");
+
+    var time = 16;
+    index = 0;
+
+    $('#slider').on('input change', function() {
+      time = $(this).val();
+    })
+    $('#pause').on('click', function() {
+      if (paused) {
+        paused = false;
+        $(this).text('[pause]');
+        writeStyles(text);
+      } else {
+        paused = true;
+        $(this).text('[resume]');
+      }
+    })
+
+    writeStyles(text);
+
+  }).call(this);
+  </script>
+</body>
+</html>
