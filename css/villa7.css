@@ -86,6 +86,7 @@ main {
 	border: none;
 	border-radius: 3px;
 }
+hr,
 #hr {
     display: block;
     height: 1px;
@@ -95,9 +96,11 @@ main {
     margin: 0;
     padding: 0; 
 }
+hr:last-of-type,
 #hr:last-of-type {
 	display: none;
 }
+a,
 #a {
 	color: black;
 }
