@@ -1,0 +1,144 @@
+@font-face {
+  font-family: 'YosemiteSanFran';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://assets.tkluge.net/fonts/ysf-thin.ttf);
+}
+::selection {
+	background: rgba(255,255,255,.1);
+}
+html,
+body {
+	background: #0E1215;
+	color: white;
+	font-family: 'YosemiteSanFran';
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+header {
+	display: flex;
+	flex-direction: column;
+	height: 30%;
+	min-height: 180px;
+	width: 100%;
+	text-align: center;
+}
+.filler {
+	flex: auto;
+}
+.info {
+	display: block;
+	font-weight: 200;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	/*align-self: flex-end;*/
+}
+.title {
+	font-size: 2.6em;
+}
+.subtitle {
+	font-size: 1.2em;
+	font-style: italic;
+	color: rgba(255,255,255,.8);
+}
+.ascii-title {
+	/*display: inline-block;*/
+	font-family: monospace;
+	width: 464px;
+	height: 96px;
+	background: transparent;
+	color: white;
+	border: none;
+	resize: none;
+	overflow: hidden;
+	outline: none;
+}
+.image-title {
+	height: 120px;
+}
+.center {
+	text-align: center;
+}
+main {
+	padding: 30px 0 20px 0;
+}
+.pagelist {
+	width: 50%;
+	margin: 0 auto;
+	list-style: none;
+	padding: 0;
+}
+.pagelist li {
+	height: 30px;
+	line-height: 30px;
+	font-size: 1.1em;
+	overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    cursor: pointer;
+	font-family: monospace;
+}
+.pagelist li a {
+	display: inline-block;
+	width: 100%;
+    padding: 0 10px;
+	text-decoration: none;
+	color: rgba(255,255,255,.8);
+    transition: all .15s ease-in-out;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: nowrap;
+}
+.pagelist li a span {
+	white-space: pre;
+}
+.pagelist li a .name {
+    transition: all .15s ease-in-out;
+}
+.pagelist li a .name {
+	color: #5555ff;
+}
+.pagelist li:last-of-type {
+	border: none;
+}
+.pagelist li:hover a {
+	/*background: rgba(255,255,255,.05);*/
+	color: white;
+}
+.pagelist li:hover a .name {
+	color: #0097FF;
+}
+.pagelist .command {
+	cursor: default;
+	padding: 0 10px;
+}
+.pagelist .command span {
+	display: inline-block;
+}
+.pagelist span + span {
+	margin-left: 10px;
+}
+.pagelist .command .user {
+	color: #55ff55;
+}
+.pagelist .command .dir {
+	color: #5555ff;
+}
+.pagelist .command .cmd {
+	color: rgba(255,255,255,.7);
+}
+@media screen and (max-width: 780px) {
+	.pagelist {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 495px) {
+	.pagelist {
+		width: 90%;
+	}
+	.owner {
+		display: none;
+	}
+}
