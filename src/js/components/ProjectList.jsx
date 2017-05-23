@@ -7,48 +7,7 @@ const viewMinWidth = 800; /// 680, 800
 export default class ProjectList extends React.Component {
 	constructor() {
 		super();
-		var projects = [
-			{
-				name: 'test',
-				description: 'test',
-				content: 'test',
-				link_project: '#',
-				link_github: '#',
-				image: '#',
-			},
-			{
-				name: 'test',
-				description: 'test',
-				content: 'test',
-				link_project: '#',
-				link_github: '#',
-				image: '#',
-			},
-			{
-				name: 'test',
-				description: 'test',
-				content: 'test',
-				link_project: '#',
-				link_github: '#',
-				image: '#',
-			},
-			{
-				name: 'test',
-				description: 'test',
-				content: 'test',
-				link_project: '#',
-				link_github: '#',
-				image: '#',
-			},
-			{
-				name: 'test',
-				description: 'test',
-				content: 'test',
-				link_project: '#',
-				link_github: '#',
-				image: '#',
-			},
-		];
+		var projects = (new Array(5)).fill(null);
 		this.state = {
 			portfolio: projects,
 			viewing: projects.map(() => 'active'),
@@ -86,7 +45,6 @@ export default class ProjectList extends React.Component {
 						viewing: arr.map(() => 'active'),
 						hoverstate: arr.map(() => null),
 					})
-
 				})
 			})
 	  this.updateWindowDimensions();
@@ -143,18 +101,21 @@ export default class ProjectList extends React.Component {
 		return (
 			<section className="h-list">
 				{
-					this.state.portfolio.map((x, i) => <PortfolioItem 
+					/*(this.state.portfolio.length ? */this.state.portfolio.map((x, i) => <PortfolioItem 
 										item={x}
 										usethumbnail={this.state.viewing[i] != 'feature'}
 										key={i}
 										props={{
-										 	className: "bar " + "bar-" + (i + 1) + ' ' + (this.state.viewing[i] || '') + ' ' + (this.state.hoverstate[i] || '') + ' ' + (this.state.transitioning || ''),
+										 	className: "bar " + "bar-" + (i + 1) + ' ' + (this.state.viewing[i] || '') + ' ' + (this.state.hoverstate[i] || '') + ' ' + (this.state.transitioning || '') + ' ' + (x ? '':'loading'),
 											onClick: () => this.onProjectSelected(i),
 											onMouseOver: () => this.onHover(i),
 											onMouseOut: () => this.onHover(false),
 										}} 
 										/>
-									)
+						)/* : (
+							<div className="loader">loading</div>
+						)
+					)*/
 
 				}
 			</section>
