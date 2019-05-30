@@ -1,0 +1,75 @@
+$shadow-0: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+$shadow-1: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+$shadow-1-inset: inset 0 1.5px 4px rgba(0, 0, 0, 0.24), inset 0 1.5px 6px rgba(0, 0, 0, 0.12);
+$shadow-2: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+$shadow-2-inset: inset 0 0 4px rgba(0,0,0,.14),inset 0 4px 8px rgba(0,0,0,.28);
+$shadow-3: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+$shadow-3-inset: inset 0 8px 17px 0 rgba(0,0,0,0.2),inset 0 6px 20px 0 rgba(0,0,0,0.19);
+$shadow-4: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+$shadow-5: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+
+$transition: cubic-bezier(0.23, 0.54, 0.19, 0.99);
+$transition-2: cubic-bezier(0.08, 0.54, 0.45, 0.91);
+$transition-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+$black-1: rgba(0,0,0,.87);
+$black-2: rgba(0,0,0,.54);
+$black-3: rgba(0,0,0,.38);
+$black-4: rgba(0,0,0,.12);
+$black-5: rgba(0,0,0,.07);
+
+$white-1: white;
+$white-2: rgba(255,255,255,.75);
+$white-3: rgba(255,255,255,.35);
+$white-4: rgba(255,255,255,.10);
+$white-5: rgba(255,255,255,.03);
+
+$text-dark-1: $black-1;
+$text-dark-2: $black-2;
+$text-light-1: $white-1;
+$text-light-2: $white-2;
+$text-light-3: $white-3;
+$text-light-4: $white-4;
+
+$background-1: #ffffff;
+$background-2: #e2e2e2;
+$background-3: #98CB95;
+$background-4: #FCAC49;
+
+$accent-1: #19C1C4;
+$accent-2: #95c0aa;
+$accent-3: #3a9374;
+$accent-4: #d1dbae;
+$accent-5: #C04A45;
+
+$red: #c64349;
+$yellow: #fdfaa2;
+$green: #beefa1;
+
+$small-break: 640px;
+$medium-break: 800px;
+$large-break: 1200px;
+
+$breakpoints: (
+  'small':  ( max-width: $small-break ),
+  'medium': ( max-width:  $medium-break ),
+  'large':  ( max-width: $large-break )
+) !default;
+
+@mixin break($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "No value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin ellip() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,21 @@
+@import '../../scss/vars';
+
+.icon {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  padding: 5px;
+  background: transparent;
+  border-radius: 50%;
+  position: relative;
+
+  svg {
+    height: 100%;
+    width: 100%;
+
+    path {
+      fill: $text-light-1;
+    }
+  }
+}

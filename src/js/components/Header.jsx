@@ -1,35 +1,33 @@
-import React from 'react';
+import React from 'react'
+import Icon from './Icon'
+import './header.scss'
 
-export default class Viewport extends React.Component {
-	constructor() {
-		super();
-	}
-	componentDidMount() {
-		
-	}
-	componentWillUnmount() {
-		
-	}
-	render() {
-		return (
-			<header className="header">
-				<section className="width-limit">
-					<section className="name-info">
-						<div className="v-center">
-							<span className="line name">Theodore Kluge</span>
-							<span className="line tagline">I make stuff.</span>
-						</div>
-					</section>
-					<section className="sm-info">
-						{<div className="v-center">
-					<a className="icon-link mdi mdi-github-circle" href="https://github.com/villa7"></a>
-					<a className="icon-link mdi mdi-codepen" href="https://codepen.io/villa7"></a>
-					<a className="icon-link mdi mdi-stackoverflow" href="https://stackoverflow.com/users/3605190/villa7?tab=profile"></a>
-				</div>}
-					{/*<img class="profpic" src="https://avatars0.githubusercontent.com/u/1696813" alt="github profile picture" />*/}
-					</section>
-				</section>
-			</header>
-		);
-	}
+export default class Header extends React.Component {
+  render () {
+    return (
+      <header className='header flex-container flex-center'>
+        <section className='width-limit flex-container flex-horizontal'>
+          <section className='name-info flex-container flex-center'>
+            <div className='v-center'>
+              <span className='line name'>Theodore Kluge</span>
+              <span className='line tagline'>I make stuff.</span>
+            </div>
+          </section>
+          <section className='sm-info flex-container flex-center'>
+            <div className='v-center'>
+              <a href='https://github.com/villa7' target='_blank'>
+                <Icon icon='github' />
+              </a>
+              <a href='https://codepen.io/villa7' target='_blank'>
+                <Icon icon='codepen' />
+              </a>
+              <a href='https://stackoverflow.com/users/3605190/villa7?tab=profile' target='_blank'>
+                <Icon icon='stackoverflow' />
+              </a>
+            </div>
+          </section>
+        </section>
+      </header>
+    )
+  }
 }

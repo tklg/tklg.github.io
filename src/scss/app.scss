@@ -1,0 +1,139 @@
+@import 'vars';
+
+html,
+body,
+#rr {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: $background-2;
+  font-family: sans-serif;
+  font-size: 11pt;
+  color: $text-dark-1;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.root {
+  @include break('small') {
+    background: $background-1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+::selection {
+  color: $text-light-1;
+  background: $accent-2;
+}
+
+* {
+  box-sizing: border-box !important;
+  position: relative;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+.flex-container {
+  display: flex;
+
+  &.flex-center {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &.flex-horizintal {
+    flex-direction: row;
+  }
+  &.flex-vertical {
+    flex-direction: column;
+  }
+  &.flex-fill {
+    width: 100%;
+  }
+  .flex {
+    display: inline-block;
+    flex: 1;
+
+    &.flex-container {
+      display: inline-flex;
+    }
+  }
+  .flex-none {
+    display: inline-block;
+    flex: none;
+  }
+}
+
+.btn {
+  position: relative;
+  height: 36px;
+  padding: 0 20px;
+  background: $accent-1;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  box-shadow: $shadow-1;
+  transition: box-shadow .15s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+
+  &:focus{
+    outline: initial;
+  }
+  &:hover {
+    box-shadow: $shadow-3;
+  }
+  &:active {
+    box-shadow: $shadow-2;
+  }
+  &:disabled {
+    background: $black-5;
+    color: $black-3;
+    pointer-events: none;
+  }
+  &.btn-with-icon {
+    padding: 0 20px 0 0;
+
+    i {
+      font-size: 1.5em;
+      height: 30px;
+      width: 30px;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+  }
+  &.btn-clear {
+    background: transparent;
+    color: $accent-1;
+    box-shadow: none;
+    border: transparent;
+
+    &:hover {
+      box-shadow: $shadow-2;
+    }
+  }
+  & + .btn {
+    margin-left: 6px;
+  }
+}
+
+a {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.primary {
+    color: $accent-2;
+  }
+}

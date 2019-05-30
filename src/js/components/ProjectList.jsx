@@ -37,7 +37,7 @@ export default class ProjectList extends React.Component {
 			            if (obj.link_project.substr(0, 5) != 'https' && obj.link_project.length) {
 			            	obj.link_project = 'http://' + obj.link_project;
 			            }
-			            obj.link_github = 'https://' + obj.link_github;
+			            if (obj.link_github) obj.link_github = 'https://' + obj.link_github;
 			            arr.push(obj);
 					}
 					this.setState({

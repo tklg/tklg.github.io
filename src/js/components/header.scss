@@ -1,0 +1,76 @@
+@import '../../scss/vars';
+$header-percent: 0.35;
+$small-header-percent: 0.2;
+
+.header {
+  // height: 400px;
+  height: $header-percent * 100vh;
+  // min-height: 50px;
+  box-shadow: $shadow-2;
+  background: $accent-1;
+  color: $text-light-1;
+  z-index: 200;
+  position: relative;
+  flex: $header-percent;
+
+  .width-limit {
+    max-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .name-info {
+    flex: 1;
+    text-align: right;
+    align-items: initial;
+    margin-right: 20px;
+  }
+  .sm-info {
+    // visibility: hidden;
+    flex: 1;
+    align-items: left;
+    margin-left: 20px;
+
+    .icon-link {
+      display: inline-block;
+      text-align: center;
+      height: 38px;
+      width: 38px;
+      transition: .15s all ease-in-out;
+    }
+    .icon-link + .icon-link {
+      margin-left: 3px;
+    }
+    .icon-link:hover {
+      text-shadow: $shadow-1;
+      // color: $text-secondary;
+    }
+
+    img {
+      height: 90%;
+      max-height: 160px;
+      width: auto;
+      border-radius: 50%;
+      box-shadow: $shadow-1;
+    }
+  }
+  .line {
+    display: inline-block;
+    width: 100%;
+
+    &.name {
+      font-size: 1.5rem;
+    }
+    &.tagline {
+      font-size: 1rem;
+      color: $text-light-2;
+    }
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .header {
+    height: $small-header-percent * 100vh;
+  }
+}
