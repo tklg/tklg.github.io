@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Header from './components/Header.jsx'
-import ProjectList from './components/ProjectList2.jsx'
+import ProjectList from './components/ProjectList.jsx'
 import Footer from './components/Footer.jsx'
 
 import '../scss/app.scss'

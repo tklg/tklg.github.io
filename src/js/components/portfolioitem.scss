@@ -3,15 +3,14 @@
 .card {
   background: $background-1;
   box-shadow: $shadow-1;
-  margin: 22px auto 22px auto;
-  max-width: 800px;
+  margin: 0;
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
 
   .info {
-    padding: 24px 14px 0 14px;
+    padding: 24px 14px 14px 24px;
 
     h1 {
       font-size: 1.6em;
@@ -29,13 +28,15 @@
         overflow: hidden;
         display: inline-block;
         height: 20px;
-        padding: 1px 6px;
-        border: 1px solid $accent-1;
+        line-height: 18px;
+        padding: 1px 8px;
+        background: $accent-2;
         border-radius: 10px;
-        color: $black-3;
+        color: $text-light-1;
+        margin: 0 5px 3px 0;
 
-        & + span {
-          margin-left: 4px;
+        &:last-of-type {
+          margin-right: 0;
         }
       }
     }

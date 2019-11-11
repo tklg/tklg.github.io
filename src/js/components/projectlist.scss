@@ -1,0 +1,16 @@
+@import '../../scss/vars';
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @include break('medium') {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

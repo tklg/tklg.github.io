@@ -1,0 +1,62 @@
+@import 'src/scss/vars';
+
+.lightbox-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: $black-2;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s $transition;
+
+  &.active {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  & > svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 14px;
+  }
+
+  svg {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+
+    path {
+      fill: $text-light-2;
+    }
+  }
+
+  .lightbox {
+    max-width: 90%;
+    max-height: calc(100% - 120px);
+    box-shadow: $shadow-2;
+
+    button {
+      background: $accent-1;
+      color: $text-light-1;
+      border: none;
+      outline: none;
+      width: 60px;
+      cursor: pointer;
+
+      &:disabled {
+        background: #cccccc;
+        path {
+          fill: #999999;
+        }
+      }
+    }
+    img {
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+}
